@@ -24,6 +24,7 @@ The library used was https://github.com/stevengj/Sobol.jl , and the docker image
     docker run -it --rm -v "$PWD":/usr/myapp -w /usr/myapp julia
 
 Doing this gave v1.0.2 version of the Sobol library for me. Then in the Julia REPL, setting dimension to 8, 60, .., as required:
+
     using Pkg
     Pkg.add("Sobol")
 
@@ -33,9 +34,11 @@ Doing this gave v1.0.2 version of the Sobol library for me. Then in the Julia RE
 The function skip(s,n) to skip points didn't work for me, but it's useful to generate the full sequences to examine them anyway. Now produce the sequence: it's convenient to produce a batch (say of 100,000 points) and then write the batch to a file, then repeat for as many batches as required.
 
 Create the data (next only 5 points here):
+
     thing = hcat([next!(s) for i = 1:5]...)'
 
 Write data to a file:
+
     using DelimitedFiles
     writedlm("sobolDim8Batch1.txt", thing, " ")
 
