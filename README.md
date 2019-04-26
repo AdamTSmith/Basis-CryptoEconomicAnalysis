@@ -53,14 +53,17 @@ These inflation and deflation events occur at regularly intervals and are design
 
 My main assumptions are:
 
-A1. The Basis price is inversely proportional to the number in circulation. (The same assumption is made in Robert Sams original paper in the field.) This fixes the amount of Basis to add or remove from circulation given the Basis price. The Basis price therefore makes a discontinuous jump back to 1 when the system is performing properly, when the number of coins changes.
-A2. Bonds can always be sold for Basis, the market is liquid and never dries up, and the only question is the auction price.
-A3. Aside from the control jumps the Basis price is continuous and a lognormal (geometric Brownian motion) stochastic process (continuous random process). Equivalently demand for Basis at 1 USD per coin is a lognormal process. A corollary is that risk neutral pricing (a standard financial derivatives method) can be used to price the Bonds in an auction.
-A4. The interest rate is zero. This helps keep the Bond price up and is therefore good for the health of the system. We now have one less parameter to worry about and rates are very low these days anyway.
+**(A1)** The Basis price is inversely proportional to the number in circulation. (The same assumption is made in Robert Sams original paper in the field.) This fixes the amount of Basis to add or remove from circulation given the Basis price. The Basis price therefore makes a discontinuous jump back to 1 when the system is performing properly, when the number of coins changes.
+
+**(A2)** Bonds can always be sold for Basis, the market is liquid and never dries up, and the only question is the auction price.
+
+**(A3)** Aside from the control jumps the Basis price is continuous and a lognormal (geometric Brownian motion) stochastic process (continuous random process). Equivalently demand for Basis at 1 USD per coin is a lognormal process. A corollary is that risk neutral pricing (a standard financial derivatives method) can be used to price the Bonds in an auction.
+
+**(A4)** The interest rate is zero. This helps keep the Bond price up and is therefore good for the health of the system. We now have one less parameter to worry about and rates are very low these days anyway.
 
 I argue that these are generous assumptions, in the sense that they decrease the chances of the system becoming unhealthy. We need to be veer on the generous side in order to be sure that problems seen in the model can be expected in reality, even though this will underestimate the probability.
 
-Assumption A3 is actually rather profound since it cuts important feedback effects out of the model. These would be very strong just when the system is under stress, such as in a death spiral: in reality a low Bond price would further depress the Basis price, leading to more Bonds needing to be issued and an even lower Bond price. A vicious circle can be triggered.
+**(A3)** is actually rather profound since it cuts important feedback effects out of the model. These would be very strong just when the system is under stress, such as in a death spiral: in reality a low Bond price would further depress the Basis price, leading to more Bonds needing to be issued and an even lower Bond price. A vicious circle can be triggered.
 
 The model still contains the far milder feedback loop of a large amount of Bonds outstanding depressing the price of new Bonds, due solely to the new Bond standing lower in the payout hierarchy. A cascade of Bond issuance that can't be maintained may therefore still occur without the impetus of direct feedback. Removing direct feedback is a very generous assumption, in fact likely to be greatly overgenerous, but makes leads to a much more tractable model.
 
